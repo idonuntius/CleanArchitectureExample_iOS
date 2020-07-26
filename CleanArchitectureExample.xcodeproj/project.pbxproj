@@ -16,6 +16,8 @@
 		1F9B942B24CAB8610084AB76 /* CleanArchitectureExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B942A24CAB8610084AB76 /* CleanArchitectureExampleTests.swift */; };
 		1F9B943624CAB8610084AB76 /* CleanArchitectureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B943524CAB8610084AB76 /* CleanArchitectureExampleUITests.swift */; };
 		1F9B944424CAB9F80084AB76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B944324CAB9F80084AB76 /* README.md */; };
+		1FD421AD24CD4916004355F9 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD421AC24CD4916004355F9 /* Swinject.framework */; };
+		1FD421AE24CD4916004355F9 /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD421AC24CD4916004355F9 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1FD421AF24CD4916004355F9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1FD421AE24CD4916004355F9 /* Swinject.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F9B941024CAB85F0084AB76 /* CleanArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B941324CAB85F0084AB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 		1F9B943524CAB8610084AB76 /* CleanArchitectureExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchitectureExampleUITests.swift; sourceTree = "<group>"; };
 		1F9B943724CAB8610084AB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9B944324CAB9F80084AB76 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FD421AC24CD4916004355F9 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FD421AD24CD4916004355F9 /* Swinject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +104,7 @@
 				1F9B942924CAB8610084AB76 /* CleanArchitectureExampleTests */,
 				1F9B943424CAB8610084AB76 /* CleanArchitectureExampleUITests */,
 				1F9B941124CAB85F0084AB76 /* Products */,
+				1FD421AB24CD4915004355F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +158,14 @@
 			path = CleanArchitectureExampleUITests;
 			sourceTree = "<group>";
 		};
+		1FD421AB24CD4915004355F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FD421AC24CD4916004355F9 /* Swinject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +176,8 @@
 				1F9B940C24CAB85F0084AB76 /* Sources */,
 				1F9B940D24CAB85F0084AB76 /* Frameworks */,
 				1F9B940E24CAB85F0084AB76 /* Resources */,
+				1FD421AF24CD4916004355F9 /* Embed Frameworks */,
+				1FD421B024CD492F004355F9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +294,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FD421B024CD492F004355F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F9B940C24CAB85F0084AB76 /* Sources */ = {
@@ -442,6 +492,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitectureExample/Preview Content\"";
 				DEVELOPMENT_TEAM = FY775XZ7F9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CleanArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +516,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitectureExample/Preview Content\"";
 				DEVELOPMENT_TEAM = FY775XZ7F9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CleanArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
